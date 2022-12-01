@@ -1,7 +1,13 @@
 require "rspec_practice.rb"
 
 describe '#my_unique' do
-    subject(:uniq) { my_unique([1, 2, 3, 1, 1, 2])}
+    subject(:uniq) { [1, 2, 3, 1, 1, 2] }
+       
+    before(:each) do
+        # 'should not make use of array.uniq' do
+        expect(uniq).not_to receive(:uniq)
+     end
+
     context 'with invalid arguments' do
         it 'raises error when not provided array' do
             expect{ my_unique(0)}.to raise_error("Invalid Input")
@@ -19,10 +25,6 @@ describe '#my_unique' do
         
         it 'should not mutate the array' do
             expect(my_unique(uniq)).to_not be(uniq)
-        end
-
-        it 'should not make use of array.uniq' do
-            expect(uniq).to_not receive(:uniq).and_return([1, 2, 3])
         end
     end
 
