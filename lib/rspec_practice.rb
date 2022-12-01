@@ -49,3 +49,20 @@ def my_transpose(arr)
     end
     transposed
 end
+
+
+def stock_picker(stock_days)
+    index_arr = []
+    total_sum = 0
+
+    (0...stock_days.length - 1).each do |i|
+        (i + 1...stock_days.length). each do |j|
+            sum = stock_days[j] - stock_days[i]
+            if total_sum < sum
+                total_sum = sum 
+                index_arr = [i, j]
+            end
+        end
+    end
+    index_arr
+end
