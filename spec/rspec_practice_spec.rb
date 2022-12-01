@@ -48,3 +48,21 @@ describe 'Array#two_sum' do
 end
 
 
+
+describe '#my_transpose' do
+    subject(:arr) {[[0, 1, 2], [3, 4, 5], [6, 7, 8]]}
+    before(:each) do
+        expect(arr).not_to receive(:transpose)
+    end
+
+    it 'should transpose rows into columns' do
+        expect(my_transpose(arr)).to eq([[0, 3, 6], [1, 4, 7], [2, 5, 8]])
+    end 
+end
+
+
+describe '#stock_picker' do 
+    it 'should return the two dates for highest possible stock return' do
+        expect(stock_picker([12000, 400, 600, 100, 700, 500])).to eq([3, 4])
+    end
+end

@@ -36,3 +36,16 @@ class Array
         sum
     end
 end
+
+
+def my_transpose(arr)
+    transposed = []
+    (0...arr.length).each do |i|
+        temp_arr = []
+        (0...arr[0].length).each do |j|
+            temp_arr << arr[j][i]
+        end
+        transposed << temp_arr
+    end
+    transposed
+end
